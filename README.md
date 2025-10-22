@@ -182,7 +182,7 @@ This approach simulates a future-oriented development cycle where the developer'
 
 1.  **Clone the Repository:**
     ```bash
-    git clone https://github.com/GeorgeFreedomTech/terminal-commander.git
+    git clone https://github.com/GeorgeFreedomTech/flask-mission-control.git
     cd terminal-commander
     ```
 2.  **Create and Activate a Virtual Environment:**
