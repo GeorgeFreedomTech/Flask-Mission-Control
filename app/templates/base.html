@@ -1,0 +1,49 @@
+<!-- base.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block page_title %} Base {% endblock page_title %}</title> 
+    <!-- Pico CSS  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.slate.min.css"/>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/site.css') }}">
+</head>
+
+<body>
+    <main class="container"> <!-- main container for Pico CSS -->
+    {% include 'header.html' %}
+    
+        {% with messages = get_flashed_messages(with_categories=true) %} <!-- flash messages -->
+            {% if messages %}
+                <div class="flashes">
+                    {% for category, message in messages %}
+                    {# Map common Flask categories to site classes; define CSS for .flash, .flash-success, etc. #}
+  
+                    {% set class_map = {
+                        'success':'flash-success',
+                        'info':'flash-info',
+                        'warning':'flash-warning',
+                        'danger':'flash-danger',
+                        'error':'flash-danger'
+                    } %}
+                    {% set flash_class = class_map.get(category, 'flash') %}
+
+                    <div class="flash {{ flash_class }}" role="alert" aria-live="polite">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+    {% block page_content %} Base.html Block content {% endblock page_content %} <!-- dynamic content -->
+    
+    {% include 'footer.html' %}
+    </main>
+</body>
+
+</html>

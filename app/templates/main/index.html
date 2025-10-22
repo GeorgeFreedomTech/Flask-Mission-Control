@@ -1,0 +1,20 @@
+<!-- index.html -->
+
+{% extends 'base.html' %}
+
+{% block page_title %} Mission Control HQ {% endblock page_title %}
+
+{% block page_content %}
+    <h1>Welcome to Mission Control</h1>
+    <p>Your central dashboard for managing mission objectives.</p>
+    
+    {% if current_user.is_authenticated %}
+    <p><a href="{{ url_for('main.dashboard') }}" role="button" class="secondary outline">Go to Your Dashboard</a></p>
+    
+    {% else %}
+    <p>to get started:</p>
+    <p><a href="{{ url_for('auth.register') }}" role="button" class="secondary">Register</a></p>
+    <p>or</p>
+    <p><a href="{{ url_for('auth.login') }}" role="button" class="secondary outline">Login</a></p>
+    {% endif %}
+{% endblock page_content %}

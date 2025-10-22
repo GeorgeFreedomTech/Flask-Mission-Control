@@ -1,0 +1,23 @@
+<!-- about.html -->
+
+{% extends 'base.html' %}
+
+{% block page_title %} About This Project {% endblock page_title %}
+
+{% block page_content %}
+    <h1>About This Project</h1>
+
+    <blockquote>
+    “I keep it simple for the purpose of elegance.
+    Because there is beauty in simplicity.
+    I enjoyed building it.”
+    <cite> — George Freedom</cite>
+    </blockquote>
+
+    <p>This application serves as a functional blueprint for a modern, database-driven <strong>web system</strong>.</p>
+
+    <p>It was intentionally designed not just as a "to-do app," but as a practical case study in clean software architecture.
+        It demonstrates key professional patterns like the <strong>Application Factory</strong> and <strong>Blueprints</strong> for modularity,
+        all built on a foundation of Python, Flask, SQLAlchemy, and Pico CSS.</p>
+    <p>This project also provides a <strong>RESTful API</strong> (endpoint: "{{ url_for('api.api_tasks') }}") for task management, allowing for easy integration with other applications.</p>
+{% endblock page_content %}

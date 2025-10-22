@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+.venv/
+env/
+.env
+
+# Instance Folder (contains secrets and database)
+/instance/
+
+# IDE / Editor specific files
+.vscode/
+.idea/
+*.swp
