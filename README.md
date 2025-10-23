@@ -183,7 +183,7 @@ This approach simulates a future-oriented development cycle where the developer'
 1.  **Clone the Repository:**
     ```bash
     git clone https://github.com/GeorgeFreedomTech/flask-mission-control.git
-    cd terminal-commander
+    cd flask-mission-control
     ```
 2.  **Create and Activate a Virtual Environment:**
     ```bash
