@@ -4,7 +4,9 @@
 
 A full-stack database-driven To-Do application built with Flask. It serves as a practical case study for architecting a modern web application using professional patterns and an AI-assisted workflow.
 
+### ⚙️ Core System Capabilities:
 It demonstrates key concepts including:
+
 * Application Factory pattern
 * Blueprints for modularity
 * SQLAlchemy for database interaction (ORM)
