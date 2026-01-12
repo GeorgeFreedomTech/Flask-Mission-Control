@@ -4,7 +4,6 @@
 
 A full-stack database-driven To-Do application built with Flask. It serves as a practical case study for architecting a modern web application using professional patterns and an AI-assisted workflow.
 
---
 
 ## 🚀 Key Features
 * **Secure Access Control:** Robust session-based authentication using Flask-Login with Bcrypt password hashing.
@@ -17,7 +16,6 @@ A full-stack database-driven To-Do application built with Flask. It serves as a 
 
 * **Scalable Modularity:** Built with the Application Factory pattern, ensuring the codebase is ready for future expansion.
 
---
 
 ## ⚙️ System Architecture
 The application utilizes the **Application Factory** pattern (`create_app` in `app/__init__.py`) for flexible configuration and initialization. It is structured into three distinct **Blueprints**. Data persistence is handled by an **SQLite database** located in the `instance` folder, managed via **Flask-SQLAlchemy**. User passwords are securely hashed using **Flask-Bcrypt**.
@@ -37,7 +35,6 @@ The application utilizes the **Application Factory** pattern (`create_app` in `a
 
 * **Interoperability:** Provides ISO 8601 compliant data for external system integration.
 
---
 
 ### System Diagram
 
