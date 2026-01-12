@@ -4,55 +4,40 @@
 
 A full-stack database-driven To-Do application built with Flask. It serves as a practical case study for architecting a modern web application using professional patterns and an AI-assisted workflow.
 
-### ⚙️ Core System Capabilities:
-It demonstrates key concepts including:
-
-* Application Factory pattern
-* Blueprints for modularity
-* SQLAlchemy for database interaction (ORM)
-* WTForms for form handling and validation
-* Flask-Login for session-based user authentication
-* Flask-Bcrypt for secure password hashing
-* A basic REST API endpoint
-
+--
 
 ## 🚀 Key Features
-* **User Authentication:** Secure registration and login system.
+* **Secure Access Control:** Robust session-based authentication using Flask-Login with Bcrypt password hashing.
 
-* **Password Security:** Passwords hashed using Bcrypt.
+* **Dynamic Task Management:** Full CRUD operations for personalized task tracking with automated UTC timestamps.
 
-* **Task Management:** Full CRUD (Create, Read, Update, Delete) functionality for user-specific tasks.
+* **Machine-to-Machine API:** Programmatic data access via a dedicated RESTful JSON endpoint (/api/tasks).
 
-* **Web Interface:** User-friendly HTML interface rendered using Jinja2 templates.
+* **Minimalist Responsive UI:** High-performance, clean interface built with Pico CSS and Jinja2 templates.
 
-* **REST API:** A dedicated endpoint (/api/tasks) providing task data in JSON format (GET and POST methods supported).
+* **Scalable Modularity:** Built with the Application Factory pattern, ensuring the codebase is ready for future expansion.
 
-* **Modular Design:** Clean structure using Blueprints, ready for future expansion.
+--
 
-* **Simple CSS styling:** Minimalistic styling with Pico CSS.
+## ⚙️ System Architecture
+The application utilizes the **Application Factory** pattern (`create_app` in `app/__init__.py`) for flexible configuration and initialization. It is structured into three distinct **Blueprints**. Data persistence is handled by an **SQLite database** located in the `instance` folder, managed via **Flask-SQLAlchemy**. User passwords are securely hashed using **Flask-Bcrypt**.
 
-## API Endpoint
+### 🔐 Auth Blueprint (Access Management)
+* **Identity Logic:** Handles user registration, login cycles, and session persistence.
 
-The application provides a simple REST API for accessing task data programmatically.
+* **Validation Layer:** Implements secure form handling and server-side validation via WTForms.
 
-* **Endpoint:** `/api/tasks`
-* **Methods:**
-    * `GET`: Retrieves a list of all tasks for the authenticated user.
-    * `POST`: Creates a new task for the authenticated user.
-* **Authentication:** Requires the user to be logged in (uses session-based authentication).
-* **Data Format:** JSON
-    * `GET` Response: An array of task objects, each containing `id`, `name`, `finished`, `time_stamp` (ISO 8601 UTC), `due_date` (ISO 8601), and `user_id`.
-    * `POST` Request Body: A JSON object containing `name` (string) and `due_date` (ISO 8601 string, e.g., "YYYY-MM-DD").
-    * `POST` Response: The newly created task object as JSON (status code 201 Created).
+### 📋 Main Blueprint (Core Logic)
+* **Operational Dashboard:** Orchestrates the primary user interface and task-management workflows.
 
-## 🏗️ Project Architecture
-The application utilizes the **Application Factory** pattern (`create_app` in `app/__init__.py`) for flexible configuration and initialization. It is structured into three distinct **Blueprints**:
+* **Data Persistence:** Interfaces with SQLAlchemy ORM for efficient SQLite database operations.
 
-* **Auth Blueprint (`/auth`):** Handles all user authentication logic (registration, login, logout) and associated forms.
-* **Main Blueprint (`/`):** Contains the core user-facing application logic, including the main landing page (`/`) and the task management dashboard (`/dashboard`).
-* **API Blueprint (`/api`):** Exposes task data via a RESTful JSON endpoint for machine-to-machine communication.
+### 🔌 API Blueprint (The Interface)
+* **RESTful Endpoint:** Exposes /api/tasks for authenticated JSON communication (GET/POST).
 
-Data persistence is handled by an **SQLite database** located in the `instance` folder, managed via **Flask-SQLAlchemy**. User passwords are securely hashed using **Flask-Bcrypt**.
+* **Interoperability:** Provides ISO 8601 compliant data for external system integration.
+
+--
 
 ### System Diagram
 
